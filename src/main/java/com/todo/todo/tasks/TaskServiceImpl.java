@@ -48,8 +48,17 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task updateTask(Task task) {
-        return null;
+    public Task updateTask(Long id, UpdateTaskModel updateTaskModel) {
+        var task = taskRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Task not found"));
+
+        task.setTaskName(updateTaskModel.getTaskName());
+        task.setAuthor(updateTaskModel.getAuthor());
+        task.setDescription(updateTaskModel.getDescription());
+
+        taskRepository.save(task);
+
+        return task;
     }
 
 }

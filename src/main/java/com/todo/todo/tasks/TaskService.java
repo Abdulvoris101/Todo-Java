@@ -13,6 +13,6 @@ public interface TaskService {
 
     void deleteTaskById(Long id);
 
-    Task updateTask(Task task);
+    Task updateTask(Long id, UpdateTaskModel updateTaskModel);
 
 }
