@@ -38,6 +38,7 @@ public class TaskController {
         var updatedTask = taskService.updateTask(id, updateTaskModel);
         return ResponseEntity.ok(updatedTask);
     }
+
     @DeleteMapping(path = "{taskId}")
     private ResponseEntity<Void> deleteTaskById(@PathVariable(name = "taskId") Long taskId) {
         taskService.deleteTaskById(taskId);
